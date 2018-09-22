@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+
+    <table class="blueTable" id="calendar">
+        <thead>
+            <tr>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Вс</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <section id="tools">
+        <button class="hidden" id="add">Add</button>
+        <section id="new_event" class="hidden">
+            <input type="text" class="input_new_event" placeholder="Event Name" id="name">
+            <input type="text" class="input_new_event" placeholder="Event Description" id="description">
+            <button class="button17" id="add_event">Done</button>
+        </section>
+        <section id="set_timer" class="hidden">
+            <input type="text" class="input_new_event" placeholder="Set timer in ms" id="input_timer">
+            <button id="timer_button" class="button17">SET</button>
+        </section>
+
+    </section>
+    <section id="toDoList">
+
+    </section>
+</body>
+<script src="index.js" defer></script>
+
+</html>
