@@ -10,7 +10,7 @@ const STATUS_IN_PROCESS = `<img src="img/status_in_progress.png" alt="S">`; // �
 const STATUS_FAILED = `<img src="img/status_losed.png" alt="S">`; // Иконка если задача провалена
 const ADDEVENTBUTTON = document.getElementById('add_event'); // Кнопка добавления новой задачи в ToDoList
 var dataToggle = ''; // Переключатель, указывающий на какую дату мы клацнули, по умолчанию пуст, при клике - принимает значение (число на которое нажали)
-var daysArray = JSON.parse(localStorage.getItem(name)) || daysArr(); // Берем данные из LocalStorage, в случае если нет такого никнейма то генерируем стандартный месяц
+var daysArray = JSON.parse(localStorage.getItem(userName)) || daysArr(); // Берем данные из LocalStorage, в случае если нет такого никнейма то генерируем стандартный месяц
 var dataToggle2 = ''; // Еще один переключатель, только он показывает не только число на которое мы нажали а весь outerHTML
 var buffer = 0; // Буффер для переключения статусов, функция ниже
 var selected_Array = []; // Массив, контроллирующий нажатие на даты, не даёт выделить больше одного элемента
@@ -76,7 +76,7 @@ ADDEVENTBUTTON.addEventListener('click', function() {
     })
     TODOLIST.innerHTML = '';
     divFactory();
-    localStorage.setItem(name, JSON.stringify(daysArray));
+    localStorage.setItem(userName, JSON.stringify(daysArray));
 })
 ADDBUTTON.addEventListener('click', () => {
     // Секция с инпутами для добавления новых задач теперь видна
@@ -129,7 +129,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                     // Удаление элемента из массива, посредством его поиска
                     e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
                     // Визуальное удаление элемента со страницы
-                    localStorage.setItem(name, JSON.stringify(daysArray));
+                    localStorage.setItem(userName, JSON.stringify(daysArray));
                     // Сохранение изменений в Storage
                 }
             }
@@ -152,7 +152,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                     // Когда нашли соответствующее свойство объекта, изменили его на новое
                     e.target.parentElement.parentElement.children[2].innerHTML = `${STATUS_IN_PROCESS}`;
                     // Обновили картинку на странице
-                    localStorage.setItem(name, JSON.stringify(daysArray));
+                    localStorage.setItem(userName, JSON.stringify(daysArray));
                     // Сохранили значения в LocalStorage
                 }
             }
@@ -163,7 +163,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                 if (index >= 0) {
                     daysArray[dataToggle - 1].events[i].status = STATUS_DONE;
                     e.target.parentElement.parentElement.children[2].innerHTML = `${STATUS_DONE}`;
-                    localStorage.setItem(name, JSON.stringify(daysArray));
+                    localStorage.setItem(userName, JSON.stringify(daysArray));
                 }
             }
         } else if (buffer === 3) {
@@ -173,7 +173,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                 if (index >= 0) {
                     daysArray[dataToggle - 1].events[i].status = STATUS_FAILED;
                     e.target.parentElement.parentElement.children[2].innerHTML = `${STATUS_FAILED}`;
-                    localStorage.setItem(name, JSON.stringify(daysArray));
+                    localStorage.setItem(userName, JSON.stringify(daysArray));
                 }
             }
             buffer = 0; // Обнулили буффер для зацикленности
@@ -204,7 +204,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                     if (index >= 0) {
                         daysArray[dataToggle - 1].events[i].status = STATUS_FAILED;
                         div.parentElement.parentElement.children[2].innerHTML = `${STATUS_FAILED}`;
-                        localStorage.setItem(name, JSON.stringify(daysArray));
+                        localStorage.setItem(userName, JSON.stringify(daysArray));
                     }
                 }
             }, timer);
