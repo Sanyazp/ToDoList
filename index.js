@@ -125,7 +125,7 @@ document.querySelector('#toDoList').addEventListener('click', e => {
                 // тоесть h1 который содержит в себе название элемента, и ищет в нем по циклу соответствующий объект, в котором object.name 
                 // совпадает с h1.innerHTML
                 if (index >= 0) {
-                    daysArray[dataToggle - 1].events = daysArray[dataToggle - 1].events.slice(index, 1);
+                    daysArray[dataToggle - 1].events.splice(i, 1);
                     // Удаление элемента из массива, посредством его поиска
                     e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
                     // Визуальное удаление элемента со страницы
